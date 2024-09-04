@@ -1,14 +1,16 @@
-/*  Program: Exercise 2
+/*  Program: Exercise 3
     Author: Mathieu Partain-Martinez
     Class: CSCI 240
-    Date: 09/012024  
-    Description: Created 2 fucntions 1 that stores random values 1-365 in an array and filter the array to find duplicates
+    Date: 09/03/2024  
+    Description: Created a class derived from progression added in function to see a check to see if prime
     I certify that the code below is my own work.
     Exception(s): N/A
 */
 
 #include <iostream>
 #include <cstdlib>
+#include <cmath>
+#include <math.h>
 
 using namespace std;
 
@@ -44,7 +46,43 @@ class Progression {
     }
 };
 
-int main(){
+class PrimeProgression : public Progression {
+    protected:
+    virtual void advance() override { 
+        current++;  // increment 1 then continues to loop
+        while (!checkPrime(current)) { // loop while if not true
+            current++;  
+        }
+    }
+        bool checkPrime(long number){ // function to check if number is prime
+            if (number < 2){
+                return false;
+            } 
+            for (long i = 2; i <= (static_cast<double>(sqrt(number))); ++i) { // convert into double for a proper sqrt value
+                    if (number % i == 0){
+                        return false;
+                    }             
+        }
+        return true;
+        }
+    
+    public: 
+        PrimeProgression() : Progression(2){} // defaults to starting at 2
 
+        PrimeProgression(long start) : Progression(start) { // starts from a number {
+            if(checkPrime(current) == false){ // checks if current number is prime is false, then advance to display number that is false
+                advance();
+            }
+        }
+       
+};
+
+int main(){
+    PrimeProgression start1;
+    PrimeProgression start2(97);
+    start1.print_progression(5);
+    start2.print_progression(5);
     
 }
+
+

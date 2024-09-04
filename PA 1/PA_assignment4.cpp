@@ -9,6 +9,7 @@
 
 #include <iostream>
 #include <cstdlib>
+#include <vector>
 
 using namespace std;
 
@@ -36,9 +37,10 @@ class CreditCard {
     double get_balance() const { return balance; }
 
     // ------------- Mutators -------------
-    int addMonthlyInterest(){
-        int newBalanceWithInterest = balance * interest;
-        return newBalanceWithInterest;
+    void addMonthlyInterest(){ // void because it modifies the value directly and does not need to return a value
+        double monthlyInterest = interest /12/100; // percentange interest rate applied for each month
+        double totalInterest = balance * monthlyInterest;
+        balance += totalInterest; // adds interest to the balance2
     }
     // Charges price to card if within credit limit, and returns whether successful
     bool charge(double price) {
@@ -67,14 +69,31 @@ int main(){
     CreditCard card1("John Doe", "Chase", "0000 0000 0000 0000", 5000);
     CreditCard card2("Jane Doe", "Wells Fargo","1234 1234 1234 1234", 3000);
     double amountCharged;
-    for (int i = 0; i <= 6; i++){
-        cout << "enter payment for card 1: ";
+    vector<int> Transactions;
+    for (int i = 0; i <= 2; i++){
+        cout << "Month: " << i + 1 << endl;
+
+        cout << "enter charge for card 1: ";
         cin >> amountCharged;
         card1.charge(amountCharged);
-        cout << "enter payment for card 2: ";
+    
+        cout << "make payment for card 1: ";
+        cin >> amountCharged;
+        card1.make_payment(amountCharged);
+        Transactions.p(card1.make_payment(amountCharged));
+        cout << "enter charge for card 2: ";
         cin >> amountCharged;
         card2.charge(amountCharged);
+
+        cout << "make payment for card 2: ";
+        cin >> amountCharged;
+        card2.make_payment(amountCharged);
+
+        card1.addMonthlyInterest();
+        card2.addMonthlyInterest();
     }
+    
     cout << card1;
     cout << card2;
+  
 }
