@@ -69,8 +69,8 @@ int main(){
     CreditCard card1("John Doe", "Chase", "0000 0000 0000 0000", 5000);
     CreditCard card2("Jane Doe", "Wells Fargo","1234 1234 1234 1234", 3000);
     double amountCharged;
-    vector<int> Transactions;
-    for (int i = 0; i <= 2; i++){
+    vector<int> Transactions;   
+    for (int i = 0; i < 6; i++){
         cout << "Month: " << i + 1 << endl;
 
         cout << "enter charge for card 1: ";
@@ -80,7 +80,7 @@ int main(){
         cout << "make payment for card 1: ";
         cin >> amountCharged;
         card1.make_payment(amountCharged);
-        Transactions.p(card1.make_payment(amountCharged));
+     
         cout << "enter charge for card 2: ";
         cin >> amountCharged;
         card2.charge(amountCharged);
