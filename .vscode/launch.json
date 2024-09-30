@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/code/CSCI 240",
-      "program": "c:/code/CSCI 240/build/Debug/outDebug",
+      "cwd": "c:/code/CSCI 240/PA3/exercise3",
+      "program": "c:/code/CSCI 240/PA3/exercise3/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

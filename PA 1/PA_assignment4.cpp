@@ -1,9 +1,8 @@
-/*  Program: Exercise 2
+/*  Program: Exercise 4
     Author: Mathieu Partain-Martinez
     Class: CSCI 240
-    Date: 09/012024  
-    Description: Created 2 fucntions 1 that stores random values 1-365 in an array and filter the array to find duplicates
-    I certify that the code below is my own work.
+    Date: 09/03/ 2024  
+    Description: Class called credit card that can take add charges, take payments and add interest
     Exception(s): N/A
 */
 
@@ -69,7 +68,7 @@ int main(){
     CreditCard card1("John Doe", "Chase", "0000 0000 0000 0000", 5000);
     CreditCard card2("Jane Doe", "Wells Fargo","1234 1234 1234 1234", 3000);
     double amountCharged;
-    vector<int> Transactions;
+   
     for (int i = 0; i <= 2; i++){
         cout << "Month: " << i + 1 << endl;
 
@@ -80,7 +79,7 @@ int main(){
         cout << "make payment for card 1: ";
         cin >> amountCharged;
         card1.make_payment(amountCharged);
-        Transactions.p(card1.make_payment(amountCharged));
+       
         cout << "enter charge for card 2: ";
         cin >> amountCharged;
         card2.charge(amountCharged);
